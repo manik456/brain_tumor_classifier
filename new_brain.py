@@ -70,7 +70,7 @@ vis_img = st.sidebar.checkbox('Show Uploaded Images')
 if inp_t:
         img = load_img(inp_t)
         st.write('** Uploaded {} images'.format(img.shape[0]))
-        res = pred(img).astype('int32')
+        res = pred(img)
         fig,ax=plt.subplots()
         for i in range(len(res)):
                 st.subheader("Image "+str(i+1)+" : Model says it's {} ".format(class_labels[res[i]]))
