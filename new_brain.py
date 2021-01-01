@@ -63,7 +63,7 @@ def pred(img):
 
     tflite_results = np.concatenate(tflite_results)  # merging all sub arrays
     
-    tf_results=[1 if i>0.5 else 0 for i in tflite_results]
+    tf_results=[1 if i>0.5 else 0 for i in tflite_results]  # scaling predictions to 0,1.
  
     return tf_results
 
@@ -72,7 +72,8 @@ vis_img = st.sidebar.checkbox('Show Uploaded Images')
 if inp_t:
         img = load_img(inp_t)
         st.write('** Uploaded {} images'.format(img.shape[0]))
-        res = np.array(pred(img)).astype('int32')  # scaling predictions to 0,1.
+          
+        res = np.array(pred(img))  # convert predictions list to array
 
         fig,ax=plt.subplots()
           
