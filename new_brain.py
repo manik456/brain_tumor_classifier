@@ -59,7 +59,7 @@ def pred(img):
     
     tflite_results = interpreter.get_tensor(output_details[0]['index'])
 
-    tflite_resluts = (tflite_results).astype('int32')  # scaling predictions to 0,1.
+    tflite_resluts = (tflite_results)
 
     tflite_results = np.concatenate(tflite_results)   # merging all sub arrays
     
@@ -70,10 +70,14 @@ vis_img = st.sidebar.checkbox('Show Uploaded Images')
 if inp_t:
         img = load_img(inp_t)
         st.write('** Uploaded {} images'.format(img.shape[0]))
-        res = pred(img)
+        res = pred(img).astype('int32')  # scaling predictions to 0,1.
+
         fig,ax=plt.subplots()
+          
         for i in range(len(res)):
+          
                 st.subheader("Image "+str(i+1)+" : Model says it's {} ".format(class_labels[res[i]]))
+                    
                 if vis_img:
                         st.sidebar.write('{}-Image Dimensions: {}'.format(str(i+1),img[i].shape))
                         st.sidebar.image(img[i],use_column_width=True)
