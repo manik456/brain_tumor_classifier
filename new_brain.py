@@ -40,7 +40,7 @@ def load_img(path):
 @st.cache(show_spinner=False)
 def pred(img):
     # Load TFLite model and allocate tensors.
-    interpreter = tf.lite.Interpreter(model_path = r'E:\Projects\tumor_project\tumor_lite_model.tflite')
+    interpreter = tf.lite.Interpreter(model_path = r'tumor_lite_model.tflite')
 
     # setting input size
     interpreter.resize_tensor_input(0, [img.shape[0],256,256,1], strict=True)
