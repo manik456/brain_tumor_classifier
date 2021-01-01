@@ -65,7 +65,7 @@ def pred(img):
     
     return tflite_results
 
-vis_img = st.sidebar.checkbox('Show Image')
+vis_img = st.sidebar.checkbox('Show Uploaded Images')
 
 if inp_t:
         img = load_img(inp_t)
