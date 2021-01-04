@@ -99,7 +99,7 @@ if inp_t:
                 if vis_img:
                         st.sidebar.write('{} - Image Dimensions: {}'.format(str(i+1),img[i].shape))
                         st.sidebar.image(img[i],use_column_width=True)
-         st.warning('Dont conclude by looking at results, just take it as a reference')
+        st.warning('Dont conclude by looking at results, just take it as a reference')
 
 ## prints model arch flow chart
 #if st.sidebar.checkbox('Model Architecture'):            
