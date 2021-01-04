@@ -95,7 +95,7 @@ if inp_t:
                 
                 #if st.checkbox('View Image - ' +str(i+1)):
                            #st.image(img[i],use_column_width=True)
-                st.write('/n')
+                st.write('\n')
                     
                 if vis_img:
                         st.sidebar.write('{} - Image Dimensions: {}'.format(str(i+1),img[i].shape))
