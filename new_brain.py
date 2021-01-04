@@ -77,7 +77,7 @@ vis_img = st.sidebar.checkbox('Show Uploaded Images')
 if inp_t:
         img = load_img(inp_t)
         
-        st.write('** Uploaded {} images [View images in side bar]'.format(img.shape[0]))
+        st.write('** Uploaded {} images [View images in side Panel]'.format(img.shape[0]))
           
         res_prob,res = np.array(pred(img))  # convert predictions list to array
 
@@ -91,7 +91,7 @@ if inp_t:
                 else:
                   pred_conf = res_prob[i] * 100
                   
-                st.subheader("Image - "+str(i+1)+" : Model predicts there is {}  tumor with [{} % confidence].".format(class_labels[res[i]],int(pred_conf)))
+                st.subheader("Image - "+str(i+1)+" : Model predicts there is {}  tumor with [{} % confidence].".format(class_labels[res[i]],round(pred_conf,3)))
                 
                 #if st.checkbox('View Image - ' +str(i+1)):
                            #st.image(img[i],use_column_width=True)
