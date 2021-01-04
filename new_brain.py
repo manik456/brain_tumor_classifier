@@ -68,7 +68,7 @@ def pred(img):
     
     tf_results=[1 if i>0.5 else 0 for i in tflite_results]  # scaling predictions to 0,1.
  
-    return tf_results
+    return tflite_results,tf_results
 
 vis_img = st.sidebar.checkbox('Show Uploaded Images')
 
@@ -77,13 +77,13 @@ if inp_t:
         
         st.write('** Uploaded {} images [View images in side bar]'.format(img.shape[0]))
           
-        res = np.array(pred(img))  # convert predictions list to array
+        res_prob,res = np.array(pred(img))  # convert predictions list to array
 
         fig,ax=plt.subplots()
           
         for i in range(len(res)):
           
-                st.subheader("Image "+str(i+1)+" : Model says there is {}  tumor".format(class_labels[res[i]]))
+                st.subheader("Image "+str(i+1)+" : Model says there is {}  tumor with {} % accuracy".format(class_labels[res[i]],res_prob[i]))
                 
                 #if st.checkbox('View Image - ' +str(i+1)):
                            #st.image(img[i],use_column_width=True)
