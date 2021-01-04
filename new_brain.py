@@ -82,7 +82,13 @@ if inp_t:
         fig,ax=plt.subplots()
           
         for i in range(len(res)):
-          
+                
+                if res[i] == 0:
+                  pred_conf = (0.5 - res_prob[i]) / 0.5
+                  pred_conf = pred_conf * 100
+                else:
+                  pred_conf = res_prob[i] * 100
+                  
                 st.subheader("Image "+str(i+1)+" : Model says there is {}  tumor with {} % accuracy".format(class_labels[res[i]],res_prob[i]))
                 
                 #if st.checkbox('View Image - ' +str(i+1)):
