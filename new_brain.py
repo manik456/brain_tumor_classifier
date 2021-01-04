@@ -89,7 +89,7 @@ if inp_t:
                 else:
                   pred_conf = res_prob[i] * 100
                   
-                st.subheader("Image "+str(i+1)+" : Model says there is {}  tumor with {} % accuracy".format(class_labels[res[i]],res_prob[i]))
+                st.subheader("Image "+str(i+1)+" : Model says there is {}  tumor with {} % accuracy".format(class_labels[res[i]],pred_conf[i]))
                 
                 #if st.checkbox('View Image - ' +str(i+1)):
                            #st.image(img[i],use_column_width=True)
