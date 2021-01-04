@@ -18,6 +18,8 @@ class_labels={0:'No \U0001F7E2',1:'a \U0001F534'}
 # upload image
 #st.markdown('---')
 st.subheader('Upload Brain MRI'+'\U0001F4C1')
+st.write('Find MRI images here : https://www.kaggle.com/navoneel/brain-mri-images-for-brain-tumor-detection')
+
 inp_t = st.file_uploader(label='File Uploader',accept_multiple_files=True)
 
 #load image
@@ -72,7 +74,7 @@ vis_img = st.sidebar.checkbox('Show Uploaded Images')
 if inp_t:
         img = load_img(inp_t)
         
-        st.write('** Uploaded {} images'.format(img.shape[0]))
+        st.write('** Uploaded {} images [View images in side bar]'.format(img.shape[0]))
           
         res = np.array(pred(img))  # convert predictions list to array
 
