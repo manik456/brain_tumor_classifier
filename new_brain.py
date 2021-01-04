@@ -11,7 +11,7 @@ st.subheader('Find out whether there is a tumor \U0001F534 in the brain (or) \
          not \U0001F7E2 by uploading the MRI of it ')
           
 
-class_labels={0:'NO \U0001F7E2',1:'YES \U0001F534'}
+class_labels={0:'No \U0001F7E2',1:'a \U0001F534'}
 #@st.cache(show_spinner=False)
 #model=tf.keras.models.load_model(r'E:\Projects\tumor_project\custom_tf_model')
 
@@ -80,10 +80,10 @@ if inp_t:
           
         for i in range(len(res)):
           
-                st.subheader("Image "+str(i+1)+" : Model says it's {} ".format(class_labels[res[i]]))
+                st.subheader("Image "+str(i+1)+" : Model says there is {}  tumor".format(class_labels[res[i]]))
                 
-                if st.checkbox('View Image - ' +str(i)):
-                           st.image(img[i],use_column_width=True)
+                #if st.checkbox('View Image - ' +str(i+1)):
+                           #st.image(img[i],use_column_width=True)
                     
                 if vis_img:
                         st.sidebar.write('{} - Image Dimensions: {}'.format(str(i+1),img[i].shape))
