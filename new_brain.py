@@ -82,7 +82,7 @@ if inp_t:
           
                 st.subheader("Image "+str(i+1)+" : Model says it's {} ".format(class_labels[res[i]]))
                 
-                if st.button('View Image'):
+                if st.checkbox('View Image'):
                            st.image(img[i],use_column_width=True)
                     
                 if vis_img:
