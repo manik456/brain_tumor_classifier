@@ -11,12 +11,12 @@ st.subheader('Find out whether there is a tumor \U0001F534 in the brain (or) \
          not \U0001F7E2 by uploading the MRI of it ')
           
 
-class_labels={0:'No \U0001F7E2',1:'Yes \U0001F534'}
+class_labels={0:'NO \U0001F7E2',1:'YES \U0001F534'}
 #@st.cache(show_spinner=False)
 #model=tf.keras.models.load_model(r'E:\Projects\tumor_project\custom_tf_model')
 
 # upload image
-st.markdown('---')
+#st.markdown('---')
 st.subheader('Upload Brain MRI'+'\U0001F4C1')
 inp_t = st.file_uploader(label='File Uploader',accept_multiple_files=True)
 
