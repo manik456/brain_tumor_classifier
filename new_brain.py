@@ -93,8 +93,9 @@ if inp_t:
                   
                 st.subheader("Image - "+str(i+1)+" : Model predicts there is {}  tumor with [{} % confidence].".format(class_labels[res[i]],int(pred_conf)))
                 
-                if st.checkbox('View Image - ' +str(i+1)):
-                           st.image(img[i],use_column_width=True)
+                #if st.checkbox('View Image - ' +str(i+1)):
+                           #st.image(img[i],use_column_width=True)
+                st.write('/n')
                     
                 if vis_img:
                         st.sidebar.write('{} - Image Dimensions: {}'.format(str(i+1),img[i].shape))
