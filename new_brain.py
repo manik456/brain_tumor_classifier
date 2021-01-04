@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 
 st.title('Brain \U0001F9E0 Tumor Detector ')
 
-st.subheader('Find out whether there is a tumor \U0001F7E2 in the brain (or) \
-         not \U0001F534 by uploading the MRI of it ')
+st.subheader('Find out whether there is a tumor \U0001F534 in the brain (or) \
+         not \U0001F7E2 by uploading the MRI of it ')
           
 
 class_labels={0:'Benign \U0001F7E2',1:'Malignant \U0001F534'}
