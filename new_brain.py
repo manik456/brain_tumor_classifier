@@ -71,8 +71,8 @@ vis_img = st.sidebar.checkbox('Show Uploaded Images')
 
 if inp_t:
         img = load_img(inp_t)
-        a='** Uploaded '+'\033[1m' + str(img.shape[0]) +'\033[0m '+ 'images'
-        st.write(a)
+        a=
+        st.write('** Uploaded {} images'.format(img.shape[0])
           
         res = np.array(pred(img))  # convert predictions list to array
 
