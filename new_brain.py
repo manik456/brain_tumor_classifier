@@ -91,7 +91,7 @@ if inp_t:
                 else:
                   pred_conf = res_prob[i] * 100
                   
-                st.subheader("Image "+str(i+1)+" : Model says there is {}  tumor with [{} % confidence]".format(class_labels[res[i]],int(pred_conf)))
+                st.subheader("Image "+str(i+1)+" : Model predicts there is {}  tumor with [{} % confidence]".format(class_labels[res[i]],int(pred_conf)))
                 
                 #if st.checkbox('View Image - ' +str(i+1)):
                            #st.image(img[i],use_column_width=True)
@@ -99,7 +99,8 @@ if inp_t:
                 if vis_img:
                         st.sidebar.write('{} - Image Dimensions: {}'.format(str(i+1),img[i].shape))
                         st.sidebar.image(img[i],use_column_width=True)
-        st.error('Dont conclude by looking at results, just take it as a reference')
+        st.markdown('---')
+        st.error('Dont conclude by looking at predictions, just take them as a reference')
 
 ## prints model arch flow chart
 #if st.sidebar.checkbox('Model Architecture'):            
