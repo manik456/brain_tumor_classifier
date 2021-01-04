@@ -81,6 +81,10 @@ if inp_t:
         for i in range(len(res)):
           
                 st.subheader("Image "+str(i+1)+" : Model says it's {} ".format(class_labels[res[i]]))
+                
+                img_but = st.button('View Image')
+                if img_but:
+                           st.image(img[i],use_column_width=True)
                     
                 if vis_img:
                         st.sidebar.write('{}-Image Dimensions: {}'.format(str(i+1),img[i].shape))
