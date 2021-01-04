@@ -60,9 +60,10 @@ def pred(img):
 
     interpreter.invoke()
     
+    # making predictions
     tflite_results = interpreter.get_tensor(output_details[0]['index'])
 
-    tflite_resluts = (tflite_results)
+    #tflite_resluts = (tflite_results)
 
     tflite_results = np.concatenate(tflite_results)  # merging all sub arrays
     
@@ -72,6 +73,7 @@ def pred(img):
 
 vis_img = st.sidebar.checkbox('Show Uploaded Images')
 
+# if file is uploaded
 if inp_t:
         img = load_img(inp_t)
         
@@ -89,7 +91,7 @@ if inp_t:
                 else:
                   pred_conf = res_prob[i] * 100
                   
-                st.subheader("Image "+str(i+1)+" : Model says there is {}  tumor with [{} % accuracy]".format(class_labels[res[i]],round(pred_conf,2)))
+                st.subheader("Image "+str(i+1)+" : Model says there is {}  tumor with [{} % accuracy]".format(class_labels[res[i]],int(pred_conf)))
                 
                 #if st.checkbox('View Image - ' +str(i+1)):
                            #st.image(img[i],use_column_width=True)
