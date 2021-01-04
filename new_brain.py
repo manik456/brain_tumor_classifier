@@ -91,7 +91,7 @@ if inp_t:
                 else:
                   pred_conf = res_prob[i] * 100
                   
-                st.subheader("Image - "+str(i+1)+" : Model predicts there is {}  tumor with [{} % confidence].".format(class_labels[res[i]],round(pred_conf,2)))
+                st.subheader("Image "+str(i+1)+" : Model predicts there is {}  tumor with [{} % confidence].".format(class_labels[res[i]],round(pred_conf,2)))
                 
                 #if st.checkbox('View Image - ' +str(i+1)):
                            #st.image(img[i],use_column_width=True)
