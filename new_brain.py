@@ -11,7 +11,7 @@ st.subheader('Find out whether there is a tumor \U0001F534 in the brain (or) \
          not \U0001F7E2 by uploading the MRI of it ')
           
 
-class_labels={0:'Benign \U0001F7E2',1:'Malignant \U0001F534'}
+class_labels={0:'No \U0001F7E2',1:'Yes \U0001F534'}
 #@st.cache(show_spinner=False)
 #model=tf.keras.models.load_model(r'E:\Projects\tumor_project\custom_tf_model')
 
