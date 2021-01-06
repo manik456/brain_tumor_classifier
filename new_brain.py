@@ -8,16 +8,16 @@ import matplotlib.pyplot as plt
 st.title('Brain \U0001F9E0 Tumor Detector ')
 
 st.subheader('Find out whether there is a tumor \U0001F534 in the brain (or) \
-         not \U0001F7E2 by uploading the MRI of it ')
+         not \U0001F7E2 by uploading the MRI \U0001F4C1 of it ')
           
 
 class_labels={0:'No \U0001F7E2',1:'a \U0001F534'}
 
-st.subheader('Upload Brain MRI'+'\U0001F4C1')
+#st.subheader('Upload Brain MRI'+'\U0001F4C1')
 
 st.write('Find some MRI images here : https://www.kaggle.com/navoneel/brain-mri-images-for-brain-tumor-detection')
 
-inp_t = st.file_uploader(label='File Uploader',accept_multiple_files=True)
+inp_t = st.file_uploader(label='Upload MRI here',accept_multiple_files=True)
 
 #load image
 @st.cache(show_spinner=False)
