@@ -1,6 +1,4 @@
 import io
-import base64
-import time
 import numpy as np
 from PIL import Image
 import streamlit as st
@@ -14,14 +12,6 @@ st.subheader('Find out whether there is a tumor \U0001F534 in the brain (or) \
           
 
 class_labels={0:'No \U0001F7E2',1:'a \U0001F534'}
-
-#gif - loader
-
-file_ = open("loading.gif", "rb")
-contents = file_.read()
-data_url = base64.b64encode(contents).decode("utf-8")
-file_.close()
-
 
 st.subheader('Upload Brain MRI'+'\U0001F4C1')
 
@@ -86,16 +76,7 @@ if inp_t:
         
         st.warning('** Uploaded {} images [View images in side Panel]'.format(img.shape[0]))
          
-        gif_runner=st.markdown( f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
-                           unsafe_allow_html=True)
-
         res_prob,res = np.array(pred(img))  # convert predictions list to array
-        
-       
-        for i in range(30):
-                  time.sleep(0.15)
-         
-        gif_runner.empty()
 
         fig,ax=plt.subplots()
           
