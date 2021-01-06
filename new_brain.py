@@ -91,11 +91,12 @@ if inp_t:
 
         res_prob,res = np.array(pred(img))  # convert predictions list to array
         
-        gif_runner.empty()
-        
+       
         for i in range(50):
                   time.sleep(0.15)
-        
+         
+        gif_runner.empty()
+
         fig,ax=plt.subplots()
           
         for i in range(len(res)):
