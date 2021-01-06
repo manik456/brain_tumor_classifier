@@ -93,8 +93,8 @@ if inp_t:
         
         gif_runner.empty()
         
-        for i in range(25):
-                  time.sleep(0.2)
+        for i in range(50):
+                  time.sleep(0.15)
         
         fig,ax=plt.subplots()
           
