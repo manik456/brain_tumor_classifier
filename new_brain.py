@@ -49,7 +49,7 @@ def pred(img):
     # setting input size
     interpreter.resize_tensor_input(0, [img.shape[0],256,256,1], strict=True)
     interpreter.allocate_tensors()
-    interpreter = load_model()
+    #interpreter = load_model()
     # Get input and output tensors.
     input_details = interpreter.get_input_details()
     output_details = interpreter.get_output_details()
