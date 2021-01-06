@@ -1,5 +1,6 @@
 import io
 import base64
+import time
 import numpy as np
 from PIL import Image
 import streamlit as st
@@ -91,6 +92,9 @@ if inp_t:
         res_prob,res = np.array(pred(img))  # convert predictions list to array
         
         gif_runner.empty()
+        
+        for i in range(25):
+                  time.sleep(0.2)
         
         fig,ax=plt.subplots()
           
