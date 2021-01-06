@@ -39,16 +39,26 @@ def load_img(path):
                 img_l.append(img_arr)
         img=np.stack(img_l)
         return img
+
+@st.cache(show_spinner=False)
+def load_model():
+        interpreter = tf.lite.Interpreter(model_path = r'tumor_lite_model.tflite')
+
+        # setting input size
+        interpreter.resize_tensor_input(0, [img.shape[0],256,256,1], strict=True)
+        interpreter.allocate_tensors()
+        return interpreter
+
 ## prediction
 @st.cache(show_spinner=False)
 def pred(img):
     # Load TFLite model and allocate tensors.
-    interpreter = tf.lite.Interpreter(model_path = r'tumor_lite_model.tflite')
+    #interpreter = tf.lite.Interpreter(model_path = r'tumor_lite_model.tflite')
 
     # setting input size
-    interpreter.resize_tensor_input(0, [img.shape[0],256,256,1], strict=True)
-    interpreter.allocate_tensors()
-
+    #interpreter.resize_tensor_input(0, [img.shape[0],256,256,1], strict=True)
+    #interpreter.allocate_tensors()
+    interpreter = load_model()
     # Get input and output tensors.
     input_details = interpreter.get_input_details()
     output_details = interpreter.get_output_details()
