@@ -1,4 +1,5 @@
 import io
+import base64
 import numpy as np
 from PIL import Image
 import streamlit as st
@@ -12,11 +13,15 @@ st.subheader('Find out whether there is a tumor \U0001F534 in the brain (or) \
           
 
 class_labels={0:'No \U0001F7E2',1:'a \U0001F534'}
-#@st.cache(show_spinner=False)
-#model=tf.keras.models.load_model(r'E:\Projects\tumor_project\custom_tf_model')
 
-# upload image
-#st.markdown('---')
+#gif - loader
+
+file_ = open("loading.gif", "rb")
+contents = file_.read()
+data_url = base64.b64encode(contents).decode("utf-8")
+file_.close()
+
+
 st.subheader('Upload Brain MRI'+'\U0001F4C1')
 
 st.write('Find some MRI images here : https://www.kaggle.com/navoneel/brain-mri-images-for-brain-tumor-detection')
@@ -79,9 +84,14 @@ if inp_t:
         img = load_img(inp_t)
         
         st.warning('** Uploaded {} images [View images in side Panel]'.format(img.shape[0]))
-          
-        res_prob,res = np.array(pred(img))  # convert predictions list to array
+         
+        gif_runner=st.markdown( f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
+                           unsafe_allow_html=True)
 
+        res_prob,res = np.array(pred(img))  # convert predictions list to array
+        
+        gif_runner.empty()
+        
         fig,ax=plt.subplots()
           
         for i in range(len(res)):
