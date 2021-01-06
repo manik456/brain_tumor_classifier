@@ -92,7 +92,7 @@ if inp_t:
         res_prob,res = np.array(pred(img))  # convert predictions list to array
         
        
-        for i in range(50):
+        for i in range(30):
                   time.sleep(0.15)
          
         gif_runner.empty()
